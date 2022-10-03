@@ -1,10 +1,16 @@
 # stubby4j-java
 
-### run with terminal - macOS
-./run.sh
+### Run with `Terminal - macOS`
 
-### run with docker compose
+```sh
+./run.sh
+```
+
+### Run with `docker compose`
+
+```sh
 docker compsoe up
+```
 
 ### reference
-https://stubby4j.com/
+https://stubby4j.com
