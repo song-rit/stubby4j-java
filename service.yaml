@@ -1,18 +1,45 @@
 - request:
-    method: GET
-    url: /api/v1/hello
+    method: POST
+    headers:
+      content-type: application/json
+    post: >
+      {"username":"(admin_.*)","password":"123456"}
+    url: /api/v1/auth
   response:
     status: 200
     headers:
       content-type: application/json; charset=utf-8
-    file: ./json/hello/resposne_happy_1.json
+    file: ./json/auth/correct_credential_<% post.1 %>.json
 - request:
     method: POST
     headers:
       content-type: application/json
-    url: /api/v1/hello
+    post: >
+      {"username":"(os_.*)","password":"123456"}
+    url: /api/v1/auth
   response:
     status: 200
     headers:
       content-type: application/json; charset=utf-8
-    file: ./json/hello/resposne_happy_2.json
+    file: ./json/auth/correct_credential.json
+- request:
+    method: POST
+    headers:
+      content-type: application/json
+    post: >
+      {"username":"(staff_.*)","password":"123456"}
+    url: /api/v1/auth
+  response:
+    status: 200
+    headers:
+      content-type: application/json; charset=utf-8
+    file: ./json/auth/correct_credential.json
+- request:
+    method: POST
+    headers:
+      content-type: application/json
+    url: /api/v1/auth
+  response:
+    status: 401
+    headers:
+      content-type: application/json; charset=utf-8
