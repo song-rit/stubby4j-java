@@ -9,7 +9,7 @@
 ### Run with `docker compose`
 
 ```sh
-docker compsoe up
+docker compose up
 ```
 
 ### reference
