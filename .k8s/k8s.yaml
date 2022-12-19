@@ -19,9 +19,16 @@ spec:
           name: stubby-mobile-api
           ports:
             - containerPort: 8884
+          env:
+           - name: STUBS_PORT
+             value: 8884
+           - name: YAML_CONFIG
+             value: service.yaml 
+           - name: WITH_ARGS
+             value: --enable_tls_with_alpn_and_http_2 --debug --watch 
           volumeMounts:
             - name: stubby-mobile-api-configmap-volume
-              mountPath: /app/config
+              mountPath: /
       volumes:
         - name: stubby-mobile-api-configmap-volume
           configMap:
@@ -36,7 +43,7 @@ spec:
   ports:
     - port: 8884
       targetPort: 8884
-      nodePort: 30101
+      nodePort: 30301
       protocol: TCP
   type: NodePort
   selector:
