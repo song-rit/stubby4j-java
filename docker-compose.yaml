@@ -1,7 +1,6 @@
 version: '3.5'
 services:
   stubby4j-jre11:
-    user: root
     image: azagniotov/stubby4j:latest-jre11
     volumes:
       - "./:/home/stubby4j/data"
